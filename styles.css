@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.site-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calculator-container {
+  border: 1px solid black; /* for debugging */
+  padding: 10px;
+  max-width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 5px;
+  background-color: black;
+}
+
+.display {
+  width: 250px;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 50px;
+  color: white;
+  /* font-size: 2em; */
+}
+
+#clear {
+  /* background-color: beige; /1* for debugging *1/ */
+  flex-basis: 35%;
+  aspect-ratio: 1.5 / 1;
+  border-radius: 25px;
+  background-color: lightgray;
+  color: black;
+}
+
+#undo {
+  /* background-color: beige; /1* for debugging *1/ */
+  flex-basis: 35%;
+  aspect-ratio: 1.5 / 1;
+  border-radius: 25px;
+  background-color: lightgray;
+  color: black;
+}
+
+#zero {
+  flex-basis: 48%;
+  aspect-ratio: 2 / 1;
+  border-radius: 25px;
+}
+
+.button {
+  border: 1px solid blue;
+  flex-basis: 23%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: gray;
+  color: white;
+}
+
+#divide {
+  background-color: orange;
+}
+#multiply {
+  background-color: orange;
+}
+#subtraction {
+  background-color: orange;
+}
+#addition {
+  background-color: orange;
+}
+#equals {
+  background-color: orange;
+}
