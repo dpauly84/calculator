@@ -1,5 +1,6 @@
 "use strict";
 const display = document.querySelector(".display");
+const decimal = document.querySelector("#decimal");
 const operators = ["+", "-", "/", "x"];
 let operations = [];
 let lastButtonClicked = "";
@@ -62,7 +63,7 @@ function buttonHandler(e) {
     }
     display.innerText = operate(operations[1], operations[0], operations[2]);
     operations = [];
-    return;
+    decimal.addEventListener("click", buttonHandler);
   }
 
   // Click was on operator(+,-,x,/) button
@@ -78,11 +79,21 @@ function buttonHandler(e) {
       operations.push(display.innerText);
     }
     operations.push(e.target.innerText);
+    decimal.addEventListener("click", buttonHandler);
   }
 
+  // Click was on clear button
   if (e.target.innerText === "Clear") {
     display.innerText = "0";
     operations = [];
+    decimal.addEventListener("click", buttonHandler);
+  }
+
+  // Click was on decimal(.) button
+  if (e.target.innerText === ".") {
+    display.innerText += ".";
+    decimal.removeEventListener("click", buttonHandler);
+    console.log(e.target);
   }
 
   lastButtonClicked = e.target.innerText;
