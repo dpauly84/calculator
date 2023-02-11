@@ -33,6 +33,16 @@ function operate(operator, a, b) {
   }
 }
 
+function checkDivideZero() {
+  if (operations[1] === "/" && operations[2] === "0") {
+    console.log("in if");
+    display.innerText = "cannot divide by zero";
+    operations.pop();
+    return true;
+  }
+  return false;
+}
+
 function buttonHandler(e) {
   // Click was on a number button
   if (Number(e.target.innerText) || e.target.innerText === "0") {
@@ -47,6 +57,9 @@ function buttonHandler(e) {
   if (e.target.innerText === "=") {
     if (operations.length !== 2) return;
     operations.push(display.innerText);
+    if (checkDivideZero()) {
+      return;
+    }
     display.innerText = operate(operations[1], operations[0], operations[2]);
     operations = [];
     return;
@@ -57,6 +70,9 @@ function buttonHandler(e) {
     operations.push(display.innerText);
     console.log(operations);
     if (operations.length === 3) {
+      if (checkDivideZero()) {
+        return;
+      }
       display.innerText = operate(operations[1], operations[0], operations[2]);
       operations = [];
       operations.push(display.innerText);
