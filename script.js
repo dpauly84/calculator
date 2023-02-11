@@ -96,6 +96,11 @@ function buttonHandler(e) {
     console.log(e.target);
   }
 
+  // Click was on backspace button
+  if (e.target.innerText === "Backspace") {
+    display.innerText = display.innerText.slice(0, -1);
+  }
+
   lastButtonClicked = e.target.innerText;
 }
 
